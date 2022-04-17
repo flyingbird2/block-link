@@ -19,6 +19,10 @@ public class Block {
     String prev_hash;
     long timestamp;
     String hash;
+    /**
+     * 随机数
+     */
+    String Nonce;
 
     public Block(String data, String prev_hash) {
         this.prev_hash = prev_hash;
