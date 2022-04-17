@@ -14,8 +14,31 @@ public class BlockChain {
     List<Block> blocks = new LinkedList<>();
 
 
-    public void addBlock(Block block){
+    public void addBlock(Block block) {
 
         blocks.add(block);
+    }
+
+    /**
+     * 获取余额
+     *
+     * @param user
+     * @return
+     */
+    double getBalance(Wallet user) {
+        double res = 0L;
+        for (Block block : blocks) {
+            List<Transaction> transactionList = block.getTransactionList();
+            for (Transaction t : transactionList) {
+                if (t.getSender().equals(user.address())) {
+                    res = res - t.getAmount();
+                }
+                if (t.getReceiver().equals(user.address())) {
+                    res = res + t.getAmount();
+                }
+            }
+
+        }
+        return res;
     }
 }

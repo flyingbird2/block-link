@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 public class TestBlockLink {
     @Test
     public void blockLink(){
-        Block block0 = new Block("创世区块", "");
-        Block block1 = new Block("张三转给李四1个比特币", block0.getHash());
-        Block block2 = new Block("张三转给王五2个比特币", block1.getHash());
+        Block block0 = new Block(null, "");
+        Block block1 = new Block(null, block0.getHash());
+        Block block2 = new Block(null, block1.getHash());
 
         BlockChain blockChain = new BlockChain();
         blockChain.addBlock(block0);
