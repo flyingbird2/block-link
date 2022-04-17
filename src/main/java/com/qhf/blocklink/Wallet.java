@@ -82,6 +82,12 @@ public class Wallet {
 
     }
 
+    public boolean verifySign(String message, byte[] sign, PublicKey publicKey) {
+        boolean sha256withECDSA = verifySignUtil("SHA256withECDSA", message.getBytes(), publicKey, sign);
+        return sha256withECDSA;
+
+    }
+
     public byte[] signDataUtil(String algorithm, byte[] data, PrivateKey key) {
 
         try {

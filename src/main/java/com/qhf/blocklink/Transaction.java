@@ -8,6 +8,7 @@ import java.security.PublicKey;
 
 /**
  * 交易
+ *
  * @author qihongfei
  * @Date 2022/4/17
  */
@@ -34,20 +35,24 @@ public class Transaction {
         this.amount = amount;
     }
 
+    public String getUnionKey() {
+        return this.sender + this.receiver + this.amount;
+    }
+
     private PublicKey sendPublicKey;
 
     private byte[] sendSign;
 
     /**
      * 为了验证交易可靠性，需要发送方输入他的公钥和签名
+     *
      * @param sign
      * @param publicKey
      */
-    void setSign(byte[] sign, PublicKey publicKey){
+    void setSign(byte[] sign, PublicKey publicKey) {
         this.sendSign = sign;
         this.sendPublicKey = publicKey;
     }
-
 
 
 }
